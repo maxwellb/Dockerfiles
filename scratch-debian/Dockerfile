@@ -59,4 +59,9 @@ FROM scratch
 
 COPY --from=0 /mnt /
 
+RUN     mkdir -p /srv/workdir && chown -R nobody:nogroup /srv/workdir
+USER    nobody:nogroup
+WORKDIR /srv/workdir
+
 CMD [ "bash", "--login" ]
+
